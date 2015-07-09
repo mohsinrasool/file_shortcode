@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       File Shortcodes
- * Description:       This plugin provides you two shortcodes and made their output editable through WP plugin editor
+ * Description:       This plugin provides you two shortcodes and made their output editable throug WP plugin editor
  * Version:           1.0
  * Author:            Mohsin Rasool
  * License:           GPL2
@@ -18,7 +18,7 @@ if ( ! defined( 'WPINC' ) ) {
  *
  *
  */
-class FiverrShortcodes {
+class FileShortcodes {
 
 	/**
 	 * Plugin version
@@ -41,7 +41,7 @@ class FiverrShortcodes {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'fiverr_shortcodes';
+	protected $plugin_slug = 'file_shortcodes';
 
 	/**
 	 * Instance of this class.
@@ -250,7 +250,7 @@ class FiverrShortcodes {
 	 */
 	function shortcode_1($attr)
 	{
-		$FileLocation = WP_PLUGIN_DIR."/fiverr_shortcodes/shortcode_1.html";
+		$FileLocation = WP_PLUGIN_DIR."/file_shortcode/shortcode_1.html";
 		if(file_exists($FileLocation)) {
 			return file_get_contents($FileLocation);
 		}
@@ -265,7 +265,7 @@ class FiverrShortcodes {
 	 */
 	function shortcode_2($attr)
 	{
-		$FileLocation = WP_PLUGIN_DIR."/fiverr_shortcodes/shortcode_2.html";
+		$FileLocation = WP_PLUGIN_DIR."/file_shortcode/shortcode_2.html";
 		if(file_exists($FileLocation)) {
 			return file_get_contents($FileLocation);
 		}
@@ -274,7 +274,7 @@ class FiverrShortcodes {
 	}
 }
 
-register_activation_hook( __FILE__, array( 'FiverrShortcodes', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'FiverrShortcodes', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'FileShortcodes', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'FileShortcodes', 'deactivate' ) );
 
-add_action( 'plugins_loaded', array( 'FiverrShortcodes', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'FileShortcodes', 'get_instance' ) );
